@@ -1,0 +1,37 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Create Indexed Vector Grid
+qgisMinimumVersion=2.0
+description=Creates a vector polygon grid for indexing. This is similar to the existing Vector Grid functionality, except that cells are named using a spreadsheet-like coordinate system (such as A1, F3 etc). By spatially joining features to this grid, you can use Attribute Tables in Print Composer to give a street-atlas style index of features and their corresponding grid squares.
+version=0.1
+author=Steven Kay
+email=stevendkay@gmail.com
+
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=vector,grid,index,indexing,spreadsheet
+
+homepage=
+tracker=
+repository=
+category=Vector
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+

@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>createnamedgridDialogBase</class>
+ <widget class="QDialog" name="createnamedgridDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>527</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>create grid for indexing</string>
+  </property>
+  <widget class="QDialogButtonBox" name="button_box">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>425</x>
+     <y>563</y>
+     <width>90</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Close</set>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>7</x>
+     <y>18</y>
+     <width>506</width>
+     <height>539</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="Createvectorgrid">
+    <attribute name="title">
+     <string>Indexed Vector Grid</string>
+    </attribute>
+    <widget class="QPushButton" name="pbLayerExtent">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>19</y>
+       <width>142</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Selected layer</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbMapCanvasExtent">
+     <property name="geometry">
+      <rect>
+       <x>336</x>
+       <y>19</y>
+       <width>143</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Canvas</string>
+     </property>
+    </widget>
+    <widget class="QgsSpinBox" name="sbRows">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>94</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QgsSpinBox" name="sbColumns">
+     <property name="geometry">
+      <rect>
+       <x>143</x>
+       <y>133</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>98</y>
+       <width>66</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rows</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>140</y>
+       <width>66</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Columns</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbRowNumbering">
+     <property name="geometry">
+      <rect>
+       <x>256</x>
+       <y>94</y>
+       <width>226</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Numeric (1, 2 ... 99)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Alphabetic (A, B ... CU, CV)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="cbColumnNumbering">
+     <property name="geometry">
+      <rect>
+       <x>257</x>
+       <y>133</y>
+       <width>226</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string>Numeric (1, 2 ... 99)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Alphabetic (A, B ... CU, CV)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>360</y>
+       <width>66</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Direction</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbDirection">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>355</y>
+       <width>339</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Rows numbered from bottom to top</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rows numbered from top to bottom</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>396</y>
+       <width>66</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Options</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>148</x>
+       <y>461</y>
+       <width>334</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>Note: the output is a memory layer. You need to save this before you close QGIS.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbCreate">
+     <property name="geometry">
+      <rect>
+       <x>147</x>
+       <y>427</y>
+       <width>158</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Create Grid</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>177</y>
+       <width>97</width>
+       <height>19</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Aspect Ratio</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbAspect">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>173</y>
+       <width>339</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Rectangular (grid divides exactly)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Square (exact number of squares vertically)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Square (exact number of squares horizontally)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Square (try to find best fit)</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QCheckBox" name="chShowLabels">
+     <property name="geometry">
+      <rect>
+       <x>146</x>
+       <y>394</y>
+       <width>333</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>add label cells outside extent</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labInfo">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>146</x>
+       <y>48</y>
+       <width>334</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbAspect">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>260</y>
+       <width>97</width>
+       <height>53</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string extracomment="This shows the aspect ratio, and cell size using the current settings."/>
+     </property>
+     <property name="statusTip">
+      <string extracomment="This shows the aspect ratio, and cell size using the current settings."/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labWidth">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>238</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cell Size</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labHeight">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>278</y>
+       <width>66</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cell Size</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>30</y>
+       <width>102</width>
+       <height>10</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Extent</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbShowCellSize">
+     <property name="geometry">
+      <rect>
+       <x>271</x>
+       <y>261</y>
+       <width>208</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show size of cells</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbShowGridSize">
+     <property name="geometry">
+      <rect>
+       <x>271</x>
+       <y>284</y>
+       <width>208</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show number of cells</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>About / Help</string>
+    </attribute>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>7</x>
+       <y>11</y>
+       <width>341</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Create vector grid for indexing</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>39</y>
+       <width>456</width>
+       <height>389</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>This is similar to the normal Create Vector Grid. In addition, cells are individually numbered in a scheme similar to spreadsheets, for example 'A1','B12'. This is to allow you to create feature grid indexes, similar to those in road atlases.
+
+
+NOTE! The grid is only created as a memory layer, you need to rember to save it before you close QGIS!  You can save it as a shapefile though!
+
+You may also need to set the CRS manually to match the original layer. 
+
+To do a grid lookup, use a spatial join (Join Attributes by Location), for example between the centroids of features in a layer to the name of the cell each point falls into. You can then use this joined layer as an attribute table in Composer.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>qgsspinbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button_box</sender>
+   <signal>accepted()</signal>
+   <receiver>createnamedgridDialogBase</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_box</sender>
+   <signal>rejected()</signal>
+   <receiver>createnamedgridDialogBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
