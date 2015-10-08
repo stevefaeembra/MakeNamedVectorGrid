@@ -22,11 +22,11 @@ email=stevendkay@gmail.com
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=vector,grid,index,indexing,spreadsheet
+tags=vector,grid,index,indexing,spreadsheet,named,cells
 
-homepage=
-tracker=
-repository=
+homepage=http://www.stevefaeembra.com/blog/2015/10/8/road-atlas-style-grids-in-qgis
+tracker=https://github.com/stevefaeembra/MakeNamedVectorGrid/issues
+repository=https://github.com/stevefaeembra/MakeNamedVectorGrid
 category=Vector
 icon=icon.png
 # experimental flag
