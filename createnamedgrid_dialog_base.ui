@@ -74,38 +74,6 @@
       <string>Canvas</string>
      </property>
     </widget>
-    <widget class="QgsSpinBox" name="sbRows">
-     <property name="geometry">
-      <rect>
-       <x>144</x>
-       <y>94</y>
-       <width>98</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-    </widget>
-    <widget class="QgsSpinBox" name="sbColumns">
-     <property name="geometry">
-      <rect>
-       <x>143</x>
-       <y>133</y>
-       <width>98</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
@@ -464,6 +432,32 @@
       <string>Show number of cells</string>
      </property>
     </widget>
+    <widget class="QSpinBox" name="sbRows">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>92</y>
+       <width>96</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbColumns">
+     <property name="geometry">
+      <rect>
+       <x>145</x>
+       <y>133</y>
+       <width>96</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -523,13 +517,6 @@ To do a grid lookup, use a spatial join (Join Attributes by Location), for examp
    </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QgsSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>qgsspinbox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>
