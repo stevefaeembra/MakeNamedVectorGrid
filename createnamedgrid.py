@@ -445,7 +445,7 @@ class createnamedgrid:
         layer.commitChanges()
         # top-left version
         fields=layer.pendingFields()
-        for (name, isLabel, col, row, poly) in self.gridcellgenerator():
+        for (name, isLabel, row, col, poly) in self.gridcellgenerator():
             feat = QgsFeature(fields)
             feat.setGeometry(poly)
             feat['name'] = name
