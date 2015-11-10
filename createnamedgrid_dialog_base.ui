@@ -498,12 +498,16 @@
       </font>
      </property>
      <property name="text">
-      <string>This is similar to the normal Create Vector Grid. In addition, cells are individually numbered in a scheme similar to spreadsheets, for example 'A1','B12'. This is to allow you to create feature grid indexes, similar to those in road atlases.
+      <string>This is similar to the normal Create Vector Grid. 
 
+ In addition, cells are individually numbered in a scheme similar to spreadsheets, for example 'A1','B12'. This is to allow you to create feature grid indexes, similar to those in road atlases.
 
-NOTE! The grid is only created as a memory layer, you need to rember to save it before you close QGIS!  You can save it as a shapefile though!
+NOTE:
 
-You may also need to set the CRS manually to match the original layer. 
+The grid is only created as a memory layer, you need to remember to save it before you close QGIS!
+
+You might need to set the CRS manually to match the original layer.
+
 
 To do a grid lookup, use a spatial join (Join Attributes by Location), for example between the centroids of features in a layer to the name of the cell each point falls into. You can then use this joined layer as an attribute table in Composer.</string>
      </property>
