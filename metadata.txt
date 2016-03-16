@@ -9,8 +9,9 @@
 [general]
 name=Create Indexed Vector Grid
 qgisMinimumVersion=2.0
-description=Creates a vector polygon grid for indexing. This is similar to the existing Vector Grid functionality, except that cells are named using a spreadsheet-like coordinate system (such as A1, F3 etc). By spatially joining features to this grid, you can use Attribute Tables in Print Composer to give a street-atlas style index of features and their corresponding grid squares.
-version=0.1
+description=Creates a vector polygon grid with named cells.
+about=This is similar to the normal "Make vector grid", but cells are named in a spreadsheet-style format. This plugin can be used to create grids for street atlas indexes, by spatially joining features to their named cells. 
+version=0.2
 author=Steven Kay
 email=stevendkay@gmail.com
 
@@ -19,14 +20,22 @@ email=stevendkay@gmail.com
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
-# changelog=
+changelog=
+ 0.2
+ - reverted to standard Qt Spinboxes
+ - fixed transposition of 'row' and 'col' fields in output
+ - made changes and fixes to help text
+ - changed defaults to be more 'spreadsheet-like'
+
+ 0.1
+   - initial version
 
 # Tags are comma separated with spaces allowed
 tags=vector,grid,index,indexing,spreadsheet
 
-homepage=
-tracker=
-repository=
+homepage=http://www.stevefaeembra.com/blog/2015/10/8/road-atlas-style-grids-in-qgis
+tracker=https://github.com/stevefaeembra/MakeNamedVectorGrid/issues
+repository=https://github.com/stevefaeembra/MakeNamedVectorGrid
 category=Vector
 icon=icon.png
 # experimental flag

@@ -74,38 +74,6 @@
       <string>Canvas</string>
      </property>
     </widget>
-    <widget class="QgsSpinBox" name="sbRows">
-     <property name="geometry">
-      <rect>
-       <x>144</x>
-       <y>94</y>
-       <width>98</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-    </widget>
-    <widget class="QgsSpinBox" name="sbColumns">
-     <property name="geometry">
-      <rect>
-       <x>143</x>
-       <y>133</y>
-       <width>98</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
@@ -167,7 +135,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <item>
       <property name="text">
@@ -206,6 +174,9 @@
        <width>339</width>
        <height>27</height>
       </rect>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
      </property>
      <item>
       <property name="text">
@@ -464,6 +435,32 @@
       <string>Show number of cells</string>
      </property>
     </widget>
+    <widget class="QSpinBox" name="sbRows">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>92</y>
+       <width>96</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbColumns">
+     <property name="geometry">
+      <rect>
+       <x>145</x>
+       <y>133</y>
+       <width>96</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -504,12 +501,16 @@
       </font>
      </property>
      <property name="text">
-      <string>This is similar to the normal Create Vector Grid. In addition, cells are individually numbered in a scheme similar to spreadsheets, for example 'A1','B12'. This is to allow you to create feature grid indexes, similar to those in road atlases.
+      <string>This is similar to the normal Create Vector Grid. 
 
+ In addition, cells are individually numbered in a scheme similar to spreadsheets, for example 'A1','B12'. This is to allow you to create feature grid indexes, similar to those in road atlases.
 
-NOTE! The grid is only created as a memory layer, you need to rember to save it before you close QGIS!  You can save it as a shapefile though!
+NOTE:
 
-You may also need to set the CRS manually to match the original layer. 
+The grid is only created as a memory layer, you need to remember to save it before you close QGIS!
+
+You might need to set the CRS manually to match the original layer.
+
 
 To do a grid lookup, use a spatial join (Join Attributes by Location), for example between the centroids of features in a layer to the name of the cell each point falls into. You can then use this joined layer as an attribute table in Composer.</string>
      </property>
@@ -523,13 +524,6 @@ To do a grid lookup, use a spatial join (Join Attributes by Location), for examp
    </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QgsSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>qgsspinbox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>
