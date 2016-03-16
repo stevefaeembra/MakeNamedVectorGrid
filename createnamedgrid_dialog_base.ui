@@ -74,7 +74,7 @@
       <string>Canvas</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="sbRows">
+    <widget class="QgsSpinBox" name="sbRows">
      <property name="geometry">
       <rect>
        <x>144</x>
@@ -90,7 +90,7 @@
       <number>1</number>
      </property>
     </widget>
-    <widget class="QSpinBox" name="sbColumns">
+    <widget class="QgsSpinBox" name="sbColumns">
      <property name="geometry">
       <rect>
        <x>143</x>
@@ -523,7 +523,13 @@ To do a grid lookup, use a spatial join (Join Attributes by Location), for examp
    </widget>
   </widget>
  </widget>
- 
+ <customwidgets>
+  <customwidget>
+   <class>QgsSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>qgsspinbox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
