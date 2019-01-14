@@ -23,13 +23,14 @@
 
 import os
 
-from PyQt4 import QtGui, uic
+from qgis.PyQt import QtGui, QtWidgets, uic
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'createnamedgrid_dialog_base.ui'))
 
 
-class createnamedgridDialog(QtGui.QDialog, FORM_CLASS):
+#class createnamedgridDialog(QtGui.QDialog, FORM_CLASS):
+class createnamedgridDialog(QtWidgets.QDialog, FORM_CLASS):
     def __init__(self, parent=None):
         """Constructor."""
         super(createnamedgridDialog, self).__init__(parent)
