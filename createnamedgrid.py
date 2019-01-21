@@ -20,20 +20,25 @@
  *                                                                         *
  ***************************************************************************/
 """
-from qgis.gui import *
+from __future__ import print_function
+from __future__ import absolute_import
+from builtins import chr
+from builtins import range
+from builtins import object
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 from qgis.core import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
 # Initialize Qt resources from file resources.py
-import resources_rc
+from . import resources_rc
 # Import the code for the dialog
-from createnamedgrid_dialog import createnamedgridDialog
+from .createnamedgrid_dialog import createnamedgridDialog
 import os.path
 import time
 import math
 
 
-class createnamedgrid:
+class createnamedgrid(object):
     """QGIS Plugin Implementation."""
 
     def __init__(self, iface):
@@ -207,15 +212,17 @@ class createnamedgrid:
 
     def layerextent(self):
         self.using = "layer"
-        bounds = self.iface.mapCanvas().fullExtent()
+        bounds = self.iface.mapCanvas().extent()
         self.xmin = bounds.xMinimum()
         self.xmax = bounds.xMaximum()
         self.ymin = bounds.yMinimum()
         self.ymax = bounds.yMaximum()
         self.xrange = self.xmax - self.xmin
         self.yrange = self.ymax - self.ymin
-        print "Lower left (%2.4f,%2.4f) " % (self.xmin, self.ymin)
-        print "Upper right (%2.4f,%2.4f) " % (self.xmax, self.ymax)
+        # fix_print_with_import
+        print("Lower left (%2.4f,%2.4f) " % (self.xmin, self.ymin))
+        # fix_print_with_import
+        print("Upper right (%2.4f,%2.4f) " % (self.xmax, self.ymax))
         self.updategridsize()
         self.updateinfobox()
         
@@ -228,8 +235,10 @@ class createnamedgrid:
         self.ymax = bounds.yMaximum()
         self.xrange = self.xmax - self.xmin
         self.yrange = self.ymax - self.ymin
-        print "Lower left (%2.4f,%2.4f) " % (self.xmin, self.ymin)
-        print "Upper right (%2.4f,%2.4f) " % (self.xmax, self.ymax)
+        # fix_print_with_import
+        print("Lower left (%2.4f,%2.4f) " % (self.xmin, self.ymin))
+        # fix_print_with_import
+        print("Upper right (%2.4f,%2.4f) " % (self.xmax, self.ymax))
         self.updategridsize()
         self.updateinfobox()
 
@@ -270,8 +279,10 @@ class createnamedgrid:
         '''
         if self.xrange == 0 or self.yrange == 0 :
             return
-        print "Yrange %2.4f" % self.yrange
-        print "Xrange %2.4f" % self.xrange
+        # fix_print_with_import
+        print("Yrange %2.4f" % self.yrange)
+        # fix_print_with_import
+        print("Xrange %2.4f" % self.xrange)
         minratio = 10000.0
         minrow = 0
         micol = 0
@@ -285,7 +296,8 @@ class createnamedgrid:
                     minratio = offsquare
                     minrow = rows
                     mincol = cols
-                    print "New best ratio is (%2.2f x %2.2f), ratio of 1:%2.4f" % (mincol, minrow, minratio) 
+                    # fix_print_with_import
+                    print("New best ratio is (%2.2f x %2.2f), ratio of 1:%2.4f" % (mincol, minrow, minratio)) 
         return (minrow, mincol) 
 
     def updateaspect(self):
@@ -315,7 +327,8 @@ class createnamedgrid:
         self.xcells = self.dlg.sbColumns.value()
         
         if self.dlg.cbAspect.currentIndex()==1:
-            print "Force to squares vertically"
+            # fix_print_with_import
+            print("Force to squares vertically")
             try:
                 self.ysize = self.yrange/self.ycells
                 self.xcells = int(self.xrange/self.ysize)+1
@@ -326,7 +339,8 @@ class createnamedgrid:
             #self.dlg.sbRows.setValue(self.ysize)
             
         if self.dlg.cbAspect.currentIndex()==2:
-            print "Force to squares horizontally"
+            # fix_print_with_import
+            print("Force to squares horizontally")
             try:
                 self.xsize = self.xrange/self.xcells
                 self.ycells = int(self.yrange/self.xsize)+1
@@ -336,14 +350,16 @@ class createnamedgrid:
             #self.dlg.sbColumns.setValue(self.xsize)
 
         if self.dlg.cbAspect.currentIndex()==0:
-            print "Normal size mode"
+            # fix_print_with_import
+            print("Normal size mode")
             self.xcells = self.dlg.sbColumns.value()
             self.xsize = self.xrange/self.xcells
             self.ysize = self.yrange/self.ycells
             
             
         if self.dlg.cbAspect.currentIndex()==3:
-            print "Square auto fit mode"
+            # fix_print_with_import
+            print("Square auto fit mode")
             minrow, mincol = self.guessbestaspectratio(self.xrange, self.yrange)
             self.xcells = mincol
             self.ycells = minrow
@@ -401,7 +417,7 @@ class createnamedgrid:
                 xleft = self.xmin + (col * self.xsize)
                 xright = xleft + self.xsize
                 # yield (name, POLYGON)
-                yield (name, 'N', row, col, QgsGeometry.fromPolygon([[QgsPoint(xleft,ytop), QgsPoint(xright,ytop), QgsPoint(xright,ybottom), QgsPoint(xleft,ybottom), QgsPoint(xleft,ytop)]]))
+                yield (name, 'N', row, col, QgsGeometry.fromPolygonXY([[QgsPointXY(xleft,ytop), QgsPointXY(xright,ytop), QgsPointXY(xright,ybottom), QgsPointXY(xleft,ybottom), QgsPointXY(xleft,ytop)]]))
         # add a legend cell, half grid height, above the grid
         calcsize=0.0
         if self.dlg.chShowLabels.isChecked():
@@ -417,7 +433,7 @@ class createnamedgrid:
                 xleft = self.xmin + (col * self.xsize)
                 xright = xleft + self.xsize
                 name = "%s" % colname
-                yield (name, 'Y', None, colname, QgsGeometry.fromPolygon([[QgsPoint(xleft,ytop), QgsPoint(xright,ytop), QgsPoint(xright,ybottom), QgsPoint(xleft,ybottom), QgsPoint(xleft,ytop)]]))
+                yield (name, 'Y', None, colname, QgsGeometry.fromPolygonXY([[QgsPointXY(xleft,ytop), QgsPointXY(xright,ytop), QgsPointXY(xright,ybottom), QgsPointXY(xleft,ybottom), QgsPointXY(xleft,ytop)]]))
             # add a legend cell, half grid height, above the grid
             for row in range(0,self.ycells):
                 # starting from bottom left
@@ -433,7 +449,7 @@ class createnamedgrid:
                 xleft = self.xmin - calcsize
                 xright = self.xmin
                 name = "%s" % rowname
-                yield (name, 'Y', rowname, None, QgsGeometry.fromPolygon([[QgsPoint(xleft,ytop), QgsPoint(xright,ytop), QgsPoint(xright,ybottom), QgsPoint(xleft,ybottom), QgsPoint(xleft,ytop)]]))
+                yield (name, 'Y', rowname, None, QgsGeometry.fromPolygonXY([[QgsPointXY(xleft,ytop), QgsPointXY(xright,ytop), QgsPointXY(xright,ybottom), QgsPointXY(xleft,ybottom), QgsPointXY(xleft,ytop)]]))
 
     def makegrid(self):
         """ build in-memory layer, optionally save as shapefile """
@@ -444,7 +460,7 @@ class createnamedgrid:
         provider.addAttributes( [ QgsField("name", QVariant.String), QgsField("isLabel", QVariant.String), QgsField("col", QVariant.String), QgsField("row", QVariant.String) ] )
         layer.commitChanges()
         # top-left version
-        fields=layer.pendingFields()
+        fields=layer.fields()
         for (name, isLabel, row, col, poly) in self.gridcellgenerator():
             feat = QgsFeature(fields)
             feat.setGeometry(poly)
@@ -454,7 +470,7 @@ class createnamedgrid:
             feat['col'] = col
             provider.addFeatures( [ feat ] )
         layer.commitChanges()
-        QgsMapLayerRegistry.instance().addMapLayer(layer)  
+        QgsProject.instance().addMapLayer(layer)  
         #writer = QgsVectorFileWriter( "/tmp/xxx.shp", provider.encoding(), provider.fields(), QGis.WKBPolygon, provider.crs() )
 
     def run(self):
